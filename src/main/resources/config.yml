@@ -1,0 +1,119 @@
+# TinyPlayer 整合插件 配置
+auth:
+  enabled: true              # 登录模块开关（false=完全禁用登录/注册功能）
+  kick-timeout-seconds: 30   # 未登录超时踢出
+  kick-message: "&c你已超时未登录，请重新进服。"
+  bypass-bedrock: true       # 基岩版玩家（Geyser/Floodgate）免登录自动放行
+  # 密码哈希盐（生产环境建议改）
+  salt: "TinyAII_2026"
+
+tpa:
+  enabled: true              # TPA 传送模块开关（false=禁用 /传送 /传这里 /同意 /拒绝）
+  timeout-seconds: 30        # 请求超时
+  cooldown-seconds: 10       # 传送冷却
+  deny-cooldown-seconds: 600 # 被拒后禁再请求
+  deny-hard-cooldown-minutes: 8  # 拒绝并屏蔽时长（防骚扰）
+  max-pending: 3             # 每人最多待处理请求
+
+spawn:
+  enabled: true              # 回城模块开关（false=禁用 /回城）
+  warmup-seconds: 5          # 回城吟唱秒数（0=立即）
+  world: ""                  # 主城世界（空=世界出生点）
+  x: 0
+  y: 100
+  z: 0
+
+trade:
+  enabled: true              # 交易模块开关（false=禁用 /交易 与潜行右键交易）
+  confirm-seconds: 5         # 双方确认后倒计时秒数
+  block-minutes: 8           # 拒绝并屏蔽交易时长的分钟数（防骚扰）
+
+home:
+  enabled: true              # 回家系统模块开关（false=禁用 /家 /sethome /delhome）
+  max-homes-default: 3       # 普通玩家默认家数
+  warmup-seconds: 5          # 回家吟唱秒数（0=立即传送）
+  limit:
+    vip: 5                   # home.limit.vip 权限组家数
+    svip: 10                 # home.limit.svip 权限组家数
+
+back:
+  enabled: true              # 返回模块开关（false=禁用 /返回）
+
+warp:
+  enabled: true              # 传送点模块开关（false=禁用 /传送点）
+
+msg:
+  enabled: true              # 私聊模块开关（false=禁用 /私聊 /回复）
+
+economy:
+  enabled: true              # 经济模块开关（false=禁用 /金币 /pay）
+  initial-balance: 0         # 新玩家初始金币（仅内置模式生效）
+  provider: auto             # 经济后端: auto=自动(自家Economy→Vault→内置) | own=只用自家 | vault=只用Vault | internal=只用内置
+
+admin:
+  enabled: true              # 管理员神权模块开关（false=禁用 /神权）
+
+claim:
+  enabled: true              # 领地模块开关（false=禁用 /领地，复刻 TinyClaim）
+  settings:
+    max-claims-default: 3     # 普通玩家默认领地数
+    max-size-xz: 256          # 单领地最大长/宽（方块）
+    max-size-y: 256           # 单领地最大高
+    min-size: 1               # 单领地最小边长（方块）
+    overlap-forbidden: true   # 禁止领地重叠
+    selection-preview-radius: 64   # 锄头选点时显示周围领地边界的半径
+    boundary-style: faces      # 领地边界显示: faces=六面 | edges=12条边线
+    display-duration-seconds: 10   # 选区预览粒子时长
+    enter-leave-duration-seconds: 2.3  # 进出领地粒子时长
+    default-welcome: "欢迎来到"  # 进入领地默认欢迎语
+  claim-flags:
+    default-environment:
+      creeper-explosion: false
+      tnt-explosion: false
+      fire-spread: false
+      lava-flow: false
+      water-flow: false
+      piston-push: false
+      mob-grief: false
+      mob-trample: false
+      animal-trample: false
+      item-drop: true
+      mob-spawn: true
+      animal-spawn: true
+    default-privilege:
+      build: false
+      interact: false
+      container: false
+      pvp: false
+      attack-monster: false
+      attack-animal: false
+      use-elytra: true
+      use-redstone: false
+      enter: true
+      chest-access: false
+  claim-economy:
+    enabled: false            # 领地经济联动
+    claim-cost: 0.0           # 创建领地费用（0=免费）
+    expand-cost-per-block: 0.0
+  templates:
+    家园:
+      creeper-explosion: false
+      tnt-explosion: false
+      mob-grief: false
+      build: true
+      interact: true
+      container: true
+      pvp: false
+    战争:
+      pvp: true
+      attack-monster: true
+      build: true
+    和平:
+      pvp: false
+      attack-monster: false
+      attack-animal: false
+
+messages:
+  prefix: "&7[&eTiny&7] &r"
+  no-permission: "&c你没有权限这么做。"
+  module-disabled: "&c该功能已在服务器配置中关闭。"
