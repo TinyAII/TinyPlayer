@@ -1,0 +1,133 @@
+name: TinyPlayer
+version: 2.1.0
+main: nl.tinyaii.tinyplayer.TinyPlayerPlugin
+api-version: 1.16
+author: TinyAII
+description: 整合插件 - 高级登录/TPA传送/回城/玩家交易，双语指令，零依赖
+website: https://github.com/TinyAII
+softdepend: [Floodgate, geyser]
+
+commands:
+  注册:
+    aliases: [register, reg]
+    description: 注册账号
+    usage: /注册 <密码> <确认密码>
+  登录:
+    aliases: [login, l]
+    description: 登录账号
+    usage: /登录 <密码>
+  传送:
+    aliases: [tpa]
+    description: 请求传送到玩家身边
+    usage: /传送 <玩家>
+  传这里:
+    aliases: [tpahere]
+    description: 请求玩家传送到你身边
+    usage: /传这里 <玩家>
+  同意:
+    aliases: [tpy, accept]
+    description: 同意传送请求
+    usage: /同意 [玩家]
+  拒绝:
+    aliases: [tpn, deny]
+    description: 拒绝传送请求
+    usage: /拒绝 [玩家]
+  回城:
+    aliases: [spawn, home]
+    description: 回到主城/世界重生点
+    usage: /回城
+  交易:
+    aliases: [trade, tp]
+    description: 与玩家交易（右键玩家也可打开）
+    usage: /交易 <玩家>
+  家:
+    aliases: [home, homes]
+    description: 回家系统（设置/回/删除/主/移动/公共/邀请/接受）
+    usage: /家 <子命令>
+  sethome:
+    aliases: [sethome]
+    description: 设置家（等价 /家 设置）
+    usage: /sethome [名字]
+  delhome:
+    aliases: [delhome]
+    description: 删除家（等价 /家 删除）
+    usage: /delhome [名字]
+  返回:
+    aliases: [back]
+    description: 回到上次传送前或死亡的位置
+    usage: /返回 [传送|死亡]
+  传送点:
+    aliases: [warp]
+    description: 公共传送点（管理员创建，玩家传送）
+    usage: /传送点 <列表|创建|删除|名字>
+  私聊:
+    aliases: [msg, tell, whisper]
+    description: 发送私人消息
+    usage: /私聊 <玩家> <消息>
+  回复:
+    aliases: [r]
+    description: 回复最后私聊你的人
+    usage: /回复 <消息>
+  金币:
+    aliases: [money, bal, balance]
+    description: 经济系统（查看余额/转账/排行）
+    usage: /金币 [转账 <玩家> <金额>|排行|给予|扣除|设置]
+  pay:
+    aliases: [pay]
+    description: 快捷转账
+    usage: /pay <玩家> <金额>
+  领地:
+    aliases: [claim, land]
+    description: 领地系统（圈地/保护/成员/子领地/模板/面板）
+    usage: /领地 <子命令>
+  神权:
+    aliases: [admin, god]
+    description: 管理员神权（玩家/经济/家/传送点/传送/拉/密码/登录/交易/公告）
+    usage: /神权 <子命令>
+
+permissions:
+  tinyplayer.use:
+    description: 使用整合插件功能
+    default: true
+  tinyplayer.admin:
+    description: 管理
+    default: op
+  home.use:
+    description: 使用回家系统
+    default: true
+  home.limit.default:
+    description: 默认家数
+    default: true
+  home.limit.vip:
+    description: VIP 家数
+    default: op
+  home.limit.svip:
+    description: SVIP 家数
+    default: op
+  home.admin:
+    description: 回家系统管理（无限家/设公共）
+    default: op
+  warp.admin:
+    description: 传送点管理（创建/删除）
+    default: op
+  economy.admin:
+    description: 经济管理（给予/扣除/设置）
+    default: op
+  claim.use:
+    description: 使用领地功能
+    default: true
+  claim.admin:
+    description: 领地管理（删除他人领地/无视保护）
+    default: op
+  claim.bypass:
+    description: 无视所有领地保护
+    default: op
+  claim.limit.default:
+    description: 默认领地数
+    default: true
+  claim.limit.vip:
+    description: VIP 领地数
+    default: op
+  claim.limit.svip:
+    description: SVIP 领地数
+    default: op
